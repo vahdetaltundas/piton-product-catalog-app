@@ -33,13 +33,13 @@ const RegisterPage = () => {
     <div className="columns-2 h-[100vh]">
       <img src="/img/Picture.png" alt="Picture" className="w-full h-[100vh]" />
 
-      <div class="flex flex-col items-center sm:p-5 lg:p-10">
+      <div className="flex flex-col items-center sm:p-5 lg:p-10">
         <Link href="/">
           <img src="/img/Logo.png" alt="logo" />
         </Link>
       </div>
-      <div class="flex flex-col sm:px-[4rem] lg:px-[8rem]">
-        <h1 class="text-[#6b6b87] text-3xl">Welcome back!</h1>
+      <div className="flex flex-col sm:px-[4rem] lg:px-[8rem]">
+        <h1 className="text-[#6b6b87] text-3xl">Welcome back!</h1>
         <h2 className="text-4xl mb-[4rem]">Login to your account</h2>
         <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit}>
           <div>
@@ -118,5 +118,6 @@ const RegisterPage = () => {
     </div>
   );
 };
+
 
 export default RegisterPage;

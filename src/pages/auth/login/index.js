@@ -20,21 +20,19 @@ const Login = () => {
     initialValues: loginInitialValues,
     validationSchema: loginValidationSchema,
     onSubmit: async (values) => {
-      try {
-        const response = await axios.post(
-          "https://assign-api.piton.com.tr/api/rest/login",
-          { email: values.email, password: values.password }
-        );
-        localStorage.setItem("access_token", response.data.action_login.token);
-        if (values.rememberMe) {
-          localStorage.setItem("remember_me",values.rememberMe);
-        }else{
-          localStorage.setItem("remember_me",false);
+      const response = await axios.post(
+        `http://localhost:3000/api/auth`,
+        {
+          email: values.email,
+          password: values.password,
         }
-        toast.success("Giriş Başarılı.");
+      );
+      const { success } = await response.data;
+      if (success) {
+        toast.success("Giriş Başarılı");
         router.push("/");
-      } catch (error) {
-        toast.error("Giriş yapılamadı!");
+      } else {
+        toast.error("Eposta yada parola hatalı");
       }
     },
   });
